@@ -1,0 +1,21 @@
+gateway:
+  grpc_port: 9090
+  http_port: 8081
+  enable_http: true
+  enable_grpc: true
+  timeout: 10s
+  max_retries: 3
+  log_level: "info"
+
+loadbalancer:
+  strategy: "round_robin"
+  health_check_interval: 30s
+  max_failures: 3
+
+nodes:
+  - address: "localhost:9001"
+    weight: 1
+  - address: "localhost:9002"
+    weight: 1
+  - address: "localhost:9003"
+    weight: 1
